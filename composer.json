@@ -1,8 +1,14 @@
 {
     "name": "ricanontherun/simple-expression-solver",
     "description": "A simple expression solver",
-    "type": "GNU",
-		"minimum-stability": "dev-master",
+    "type": "library",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Christian Roman",
+            "email": "ricanontherun@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=7.0"
     },
@@ -10,12 +16,5 @@
 			"psr-0": {
 				"ricanontherun": "src/"
 			}
-		},
-    "license": "GNU",
-    "authors": [
-        {
-            "name": "Christian Roman",
-            "email": "ricanontherun@gmail.com"
-        }
-    ]
+		}
 }
