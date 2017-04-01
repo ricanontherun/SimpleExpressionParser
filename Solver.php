@@ -37,6 +37,7 @@ class Solver
 		case '/':
 			$divisor = self::solve($root->right);
 			return !empty($divisor) ? self::solve($root->left) / $divisor : 0;
+
 			break;
 		}
 	}
