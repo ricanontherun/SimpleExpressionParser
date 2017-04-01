@@ -9,7 +9,11 @@ class Solver
 
 	public function solveExpression(string $expression)
 	{
-		$tree = Parser::fromString($expression);
+		try {
+			$tree = Parser::fromString($expression);
+		} catch (\Throwable $e) {
+			printf("%yeooooo\n");
+		}
 
 		return self::solve($tree);
 	}
@@ -31,7 +35,8 @@ class Solver
 			return self::solve($root->left) * self::solve($root->right);
 			break;
 		case '/':
-			return self::solve($root->left) / self::solve($root->right);
+			$divisor = self::solve($root->right);
+			return !empty($divisor) ? self::solve($root->left) / $divisor : 0;
 			break;
 		}
 	}

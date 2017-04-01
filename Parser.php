@@ -16,11 +16,19 @@ class Parser
 
 	public static function fromString(string $expression) : Tree
 	{
+		self::cleanInput($expression);
+
 		$root = new Tree;
 
 		self::parse($root, $expression);
 
 		return $root;
+	}
+
+	private static function cleanInput(string $expression)
+	{
+		// Remove all whitespaces.
+		return str_replace('/\s/', '', $expression);
 	}
 
 	private static function parse(Tree $root, string $expression)
