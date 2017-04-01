@@ -14,7 +14,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"ExpressionSolver\\": "src/"
+			"ricanontherun\\ExpressionSolver\\": "src/"
 		}
 	}
 }
