@@ -5,35 +5,65 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 Parser	Parser.php	/^class Parser$/;"	c
+Parser	src/Parser.php	/^class Parser$/;"	c
 Solver	Solver.php	/^class Solver$/;"	c
+Solver	src/Solver.php	/^class Solver$/;"	c
 Tree	Tree.php	/^class Tree$/;"	c
+Tree	src/Tree.php	/^class Tree$/;"	c
 cleanInput	Parser.php	/^	private static function cleanInput(string $expression)$/;"	f
+cleanInput	src/Parser.php	/^	private static function cleanInput(string $expression)$/;"	f
 current_character	Parser.php	/^			$current_character = $expression[$i];$/;"	v
+current_character	src/Parser.php	/^			$current_character = $expression[$i];$/;"	v
 divisor	Solver.php	/^			$divisor = self::solve($root->right);$/;"	v
+divisor	src/Solver.php	/^			$divisor = self::solve($root->right);$/;"	v
 expression	Solver.php	/^	private $expression;$/;"	v
+expression	src/Solver.php	/^	private $expression;$/;"	v
 expression_tree	Solver.php	/^	private $expression_tree;$/;"	v
+expression_tree	src/Solver.php	/^	private $expression_tree;$/;"	v
 findNextOperator	Parser.php	/^	private static function findNextOperator(string $expression)$/;"	f
+findNextOperator	src/Parser.php	/^	private static function findNextOperator(string $expression)$/;"	f
 fromString	Parser.php	/^	public static function fromString(string $expression) : Tree$/;"	f
+fromString	src/Parser.php	/^	public static function fromString(string $expression) : Tree$/;"	f
 index	Parser.php	/^				$index = $i;$/;"	v
 index	Parser.php	/^		$index = PHP_INT_MAX;$/;"	v
 index	Parser.php	/^		$index = self::findNextOperator($expression);$/;"	v
+index	src/Parser.php	/^				$index = $i;$/;"	v
+index	src/Parser.php	/^		$index = PHP_INT_MAX;$/;"	v
+index	src/Parser.php	/^		$index = self::findNextOperator($expression);$/;"	v
 left	Parser.php	/^		$left = $right = $operator =  '';$/;"	v
 left	Parser.php	/^		$left = substr($expression, 0, $index);$/;"	v
 left	Tree.php	/^	public $left = null;$/;"	v
+left	src/Parser.php	/^		$left = $right = $operator =  '';$/;"	v
+left	src/Parser.php	/^		$left = substr($expression, 0, $index);$/;"	v
+left	src/Tree.php	/^	public $left = null;$/;"	v
 operator	Parser.php	/^		$operator = $expression[$index];$/;"	v
+operator	src/Parser.php	/^		$operator = $expression[$index];$/;"	v
 operator_precendence	Parser.php	/^	private static $operator_precendence = [$/;"	v
+operator_precendence	src/Parser.php	/^	private static $operator_precendence = [$/;"	v
 parse	Parser.php	/^	private static function parse(Tree $root, string $expression)$/;"	f
+parse	src/Parser.php	/^	private static function parse(Tree $root, string $expression)$/;"	f
 right	Parser.php	/^		$right = substr($expression, $index + 1);$/;"	v
 right	Tree.php	/^	public $right = null;$/;"	v
+right	src/Parser.php	/^		$right = substr($expression, $index + 1);$/;"	v
+right	src/Tree.php	/^	public $right = null;$/;"	v
 root	Parser.php	/^		$root = new Tree;$/;"	v
 root	Tree.php	/^	public $root = null;$/;"	v
+root	src/Parser.php	/^		$root = new Tree;$/;"	v
+root	src/Tree.php	/^	public $root = null;$/;"	v
 smallest_seen_thus_far	Parser.php	/^				$smallest_seen_thus_far = self::$operator_precendence[$current_character];$/;"	v
 smallest_seen_thus_far	Parser.php	/^		$smallest_seen_thus_far = PHP_INT_MAX;$/;"	v
+smallest_seen_thus_far	src/Parser.php	/^				$smallest_seen_thus_far = self::$operator_precendence[$current_character];$/;"	v
+smallest_seen_thus_far	src/Parser.php	/^		$smallest_seen_thus_far = PHP_INT_MAX;$/;"	v
 solve	Solver.php	/^	private function solve(Tree $root)$/;"	f
+solve	src/Solver.php	/^	private function solve(Tree $root)$/;"	f
 solveExpression	Solver.php	/^	public function solveExpression(string $expression)$/;"	f
+solveExpression	src/Solver.php	/^	public function solveExpression(string $expression)$/;"	f
 solver	expression_parse.php	/^$solver = new Solver();$/;"	v
 solver	tests.php	/^$solver = new Solver();$/;"	v
 solver	tests/tests.php	/^$solver = new Solver();$/;"	v
 splitExpression	Parser.php	/^	private static function splitExpression(string $expression, &$left = null, &$operator = null, &$right = null)$/;"	f
+splitExpression	src/Parser.php	/^	private static function splitExpression(string $expression, &$left = null, &$operator = null, &$right = null)$/;"	f
 tree	Solver.php	/^			$tree = Parser::fromString($expression);$/;"	v
+tree	src/Solver.php	/^			$tree = Parser::fromString($expression);$/;"	v
 type	Tree.php	/^	public $type = null;$/;"	v
+type	src/Tree.php	/^	public $type = null;$/;"	v

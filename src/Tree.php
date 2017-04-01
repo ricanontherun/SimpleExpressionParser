@@ -1,6 +1,6 @@
 <?php
 
-namespace ricanotherun\ExpressionSolver;
+namespace ricanontherun\ExpressionSolver;
 
 class Tree
 {
