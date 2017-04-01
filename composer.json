@@ -3,7 +3,7 @@
     "description": "A simple expression solver",
     "type": "GNU",
     "require": {
-        "php": "7.0"
+        "php": ">=7.0"
     },
     "license": "GNU",
     "authors": [
