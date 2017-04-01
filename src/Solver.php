@@ -9,13 +9,7 @@ class Solver
 
 	public function solveExpression(string $expression)
 	{
-		try {
-			$tree = Parser::fromString($expression);
-		} catch (\Throwable $e) {
-			printf("%yeooooo\n");
-		}
-
-		return self::solve($tree);
+		return self::solve(Parser::fromString($expression));
 	}
 
 	private function solve(Tree $root)
