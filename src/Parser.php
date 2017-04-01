@@ -59,8 +59,6 @@ class Parser
 	{
 		$index = self::findNextOperator($expression);
 
-		// Find the last operator of least precendence.
-		// The the content to the left and right of the operator.
 		$left = substr($expression, 0, $index);
 		$operator = $expression[$index];
 		$right = substr($expression, $index + 1);
