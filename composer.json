@@ -2,7 +2,7 @@
     "name": "ricanontherun/simple-expression-solver",
     "description": "A simple expression solver",
     "type": "GNU",
-		"minimum-stability": "dev",
+		"minimum-stability": "dev-master",
     "require": {
         "php": ">=7.0"
     },
