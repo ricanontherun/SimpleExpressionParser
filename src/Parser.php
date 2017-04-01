@@ -2,6 +2,20 @@
 
 namespace ricanontherun\ExpressionSolver;
 
+class ParseException extends \Exception {}
+
+class ExpressionParts
+{
+	public $left = null;
+	public $operator = null;
+	public $right = null;
+
+	public function valid() : bool
+	{
+		return !empty($this->left) && !empty($this->operator) && !empty($this->right);
+	}
+}
+
 class Parser
 {
 	private static $operator_precendence = [
@@ -16,7 +30,6 @@ class Parser
 
 	public static function fromString(string $expression) : Tree
 	{
-		self::cleanInput($expression);
 
 		$root = new Tree;
 
@@ -25,10 +38,10 @@ class Parser
 		return $root;
 	}
 
-	private static function cleanInput(string $expression)
+	private static function cleanInput(string &$expression)
 	{
 		// Remove all whitespaces.
-		return str_replace('/\s/', '', $expression);
+		$expression = str_replace(' ', '', $expression);
 	}
 
 	private static function parse(Tree $root, string $expression)
@@ -40,26 +53,36 @@ class Parser
 			return;
 		}
 
-		$left = $right = $operator =  '';
-		self::splitExpression($expression, $left, $operator, $right);
+		$parts = self::splitExpression($expression);
+
+		if ( !$parts->valid() ) {
+			throw new ParseException("Malformed expression");
+		}
 
 		$root->type = self::TYPE_OPERATOR;
-		$root->root = $operator;
+		$root->root = $parts->operator;
 
 		$root->left = new Tree;
 		$root->right = new Tree;
 
-		self::parse($root->left, $left);
-		self::parse($root->right, $right);
+		self::parse($root->left, $parts->left);
+		self::parse($root->right, $parts->right);
 	}
 
-	private static function splitExpression(string $expression, &$left = null, &$operator = null, &$right = null)
+	private static function splitExpression(string $expression) : ExpressionParts
 	{
+		$parts = new ExpressionParts;
 		$index = self::findNextOperator($expression);
 
-		$left = substr($expression, 0, $index);
-		$operator = $expression[$index];
-		$right = substr($expression, $index + 1);
+		if ( !$index ) {
+			return $parts;
+		}
+
+		$parts->left = trim(substr($expression, 0, $index));
+		$parts->operator = $expression[$index];
+		$parts->right = trim(substr($expression, $index + 1));
+
+		return $parts;
 	}
 
 	private static function findNextOperator(string $expression)
@@ -67,6 +90,7 @@ class Parser
 		$smallest_seen_thus_far = PHP_INT_MAX;
 		$index = PHP_INT_MAX;
 
+		// TODO: Handle Paren
 		for ( $i = 0; $i < strlen($expression); $i++ ) {
 			$current_character = $expression[$i];
 
@@ -74,12 +98,21 @@ class Parser
 				continue;
 			}
 
-			if ( self::$operator_precendence[$current_character] <= $smallest_seen_thus_far ) {
-				$smallest_seen_thus_far = self::$operator_precendence[$current_character];
-				$index = $i;
+			if ( self::isOperator($current_character) ) {
+				$operator_precendence = self::$operator_precendence[$current_character];
+
+				if ( $operator_precendence <= $smallest_seen_thus_far ) {
+					$smallest_seen_thus_far = $operator_precendence;
+					$index = $i;
+				}
 			}
 		}
 
-		return $index;
+		return $index !== PHP_INT_MAX ? $index : false;
+	}
+
+	private static function isOperator(string $token) : bool
+	{
+		return array_key_exists($token, self::$operator_precendence);
 	}
 }
