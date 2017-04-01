@@ -2,8 +2,6 @@
 
 namespace ricanontherun\ExpressionSolver;
 
-use Tree;
-
 class Parser
 {
 	private static $operator_precendence = [
