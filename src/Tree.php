@@ -1,5 +1,7 @@
 <?php
 
+namespace ricanotherun\ExpressionSolver;
+
 class Tree
 {
 	public $root = null;
@@ -7,3 +9,4 @@ class Tree
 	public $left = null;
 	public $right = null;
 }
+

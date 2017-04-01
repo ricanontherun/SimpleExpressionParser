@@ -32,6 +32,7 @@ smallest_seen_thus_far	Parser.php	/^		$smallest_seen_thus_far = PHP_INT_MAX;$/;"
 solve	Solver.php	/^	private function solve(Tree $root)$/;"	f
 solveExpression	Solver.php	/^	public function solveExpression(string $expression)$/;"	f
 solver	expression_parse.php	/^$solver = new Solver();$/;"	v
+solver	tests.php	/^$solver = new Solver();$/;"	v
 splitExpression	Parser.php	/^	private static function splitExpression(string $expression, &$left = null, &$operator = null, &$right = null)$/;"	f
 tree	Solver.php	/^			$tree = Parser::fromString($expression);$/;"	v
 type	Tree.php	/^	public $type = null;$/;"	v

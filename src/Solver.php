@@ -1,6 +1,8 @@
 <?php
 
-require_once 'Parser.php';
+namespace ricanotherun\ExpressionSolver;
+
+use Parser;
 
 class Solver
 {

@@ -1,6 +1,8 @@
 <?php
 
-require_once 'Tree.php';
+namespace ricanotherun\ExpressionSolver;
+
+use Tree;
 
 class Parser
 {
