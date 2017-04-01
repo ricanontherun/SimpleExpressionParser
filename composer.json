@@ -2,9 +2,15 @@
     "name": "ricanontherun/simple-expression-solver",
     "description": "A simple expression solver",
     "type": "GNU",
+		"minimum-stability": "dev",
     "require": {
         "php": ">=7.0"
     },
+		"autoload": {
+			"psr-0": {
+				"ricanontherun": "src/"
+			}
+		},
     "license": "GNU",
     "authors": [
         {
