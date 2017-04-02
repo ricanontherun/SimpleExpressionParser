@@ -42,7 +42,7 @@ class Parser
 	{
 		$root = new Tree;
 
-		self::parse($root, $expression);
+		self::parse($root, "({$expression})");
 
 		return $root;
 	}

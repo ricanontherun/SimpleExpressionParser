@@ -67,6 +67,8 @@ class ExpressionTests extends TestCase
 	public function testBasicExpressionsWithParenthesis()
 	{
 		$this->assertEquals($this->solver->solveExpression("1+(3*(1+3)+4)-(6/3)"), 15);
+		$this->assertEquals($this->solver->solveExpression("(5-3)*(5+3)"), 16);
+		$this->assertEquals($this->solver->solveExpression("7 + (6 * 25 + 3)"), 160);
 	}
 }
 
